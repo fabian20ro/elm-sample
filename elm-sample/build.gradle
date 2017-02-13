@@ -1,0 +1,18 @@
+apply plugin: 'application'
+
+repositories {
+   jcenter()
+    
+}
+
+build {
+	ant.delete(dir: 'out', failonerror: 'true')
+	ant.mkdir(dir: 'out')
+	ant.exec(executable: 'elm-make') {
+		arg(line: 'src/Main.elm --output out/main.html --yes')
+	}
+	ant.exec(executable: 'elm-make') {
+		arg(line: 'src/Main.elm --output out/main.js --yes')
+	}
+	ant.copy(file: 'src/main_js.html', tofile: 'out/main_js.html') 
+}
