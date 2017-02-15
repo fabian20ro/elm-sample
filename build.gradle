@@ -8,6 +8,7 @@ task build {
 		ant.exec(executable: 'elm-make') {
 			arg(line: 'src/Main.elm --output out/main.js --yes')
 		}
-		ant.copy(file: 'src/main_js.html', tofile: 'out/main_js.html') 
+		ant.copy(file: 'src/main_js_not_working.html', tofile: 'out/main_js_not_working.html')
+		ant.copy(file: 'src/main_js_working.html', tofile: 'out/main_js_working.html')
 	}
 }
